@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#notify-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  width: 300px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+.notification {
+  background: rgba(40, 40, 40, 0.8);
+  border-left: 4px solid;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification.info { border-color: #3498db; }
+.notification.success { border-color: #2ecc71; }
+.notification.error { border-color: #e74c3c; }
+.notification.warning { border-color: #f39c12; }
+
+.notification-content {
+  flex-grow: 1;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.notification-progress-bar {
+  height: 100%;
+  width: 100%;
+  transition: width linear;
+}
+
+.notification.info .notification-progress-bar { background-color: #3498db; }
+.notification.success .notification-progress-bar { background-color: #2ecc71; }
+.notification.error .notification-progress-bar { background-color: #e74c3c; }
+.notification.warning .notification-progress-bar { background-color: #f39c12; }
